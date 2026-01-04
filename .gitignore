@@ -1,5 +1,5 @@
-# Binaries
-gamelight
+# Binaries (at root only)
+/gamelight
 *.exe
 *.dll
 *.so
