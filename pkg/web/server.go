@@ -485,12 +485,12 @@ func (c *Client) handleICECandidate(ice ICEMessage) {
 }
 
 func (c *Client) sendICECandidate(candidate *webrtc.ICECandidate) {
-	json := candidate.ToJSON()
+	candidateJSON := candidate.ToJSON()
 	ice := ICEMessage{
-		Candidate:        json.Candidate,
-		SDPMid:           json.SDPMid,
-		SDPMLineIndex:    json.SDPMLineIndex,
-		UsernameFragment: json.UsernameFragment,
+		Candidate:        candidateJSON.Candidate,
+		SDPMid:           candidateJSON.SDPMid,
+		SDPMLineIndex:    candidateJSON.SDPMLineIndex,
+		UsernameFragment: candidateJSON.UsernameFragment,
 	}
 
 	iceData, _ := json.Marshal(ice)
