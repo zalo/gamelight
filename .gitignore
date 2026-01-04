@@ -1,0 +1,33 @@
+# Binaries
+gamelight
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Build output
+/bin/
+/dist/
+
+# Dependencies
+/vendor/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config with secrets
+config.local.yaml
+*.pem
+*.key
+*.crt
+
+# Logs
+*.log

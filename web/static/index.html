@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gamelight</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Video Container -->
+        <div id="video-container">
+            <video id="video" autoplay playsinline muted></video>
+            <div id="loading">
+                <div class="spinner"></div>
+                <p>Connecting to stream...</p>
+            </div>
+            <div id="error" class="hidden">
+                <p id="error-message">Connection failed</p>
+                <button onclick="location.reload()">Retry</button>
+            </div>
+        </div>
+
+        <!-- Sidebar Toggle -->
+        <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle sidebar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="sidebar collapsed">
+            <div class="sidebar-header">
+                <h1>Gamelight</h1>
+                <button id="sidebar-close" class="sidebar-close" aria-label="Close sidebar">&times;</button>
+            </div>
+
+            <div class="sidebar-content">
+                <!-- Your Status -->
+                <section class="sidebar-section">
+                    <h2>Your Status</h2>
+                    <div id="your-status" class="status-card">
+                        <div class="status-role" id="your-role">Connecting...</div>
+                        <div class="status-slot" id="your-slot"></div>
+                    </div>
+                    <div id="player-actions" class="hidden">
+                        <button id="btn-join-player" class="btn btn-primary">Join as Player</button>
+                        <button id="btn-spectate" class="btn btn-secondary hidden">Spectate</button>
+                    </div>
+                </section>
+
+                <!-- Players -->
+                <section class="sidebar-section">
+                    <h2>Players</h2>
+                    <ul id="player-list" class="player-list">
+                        <!-- Filled by JavaScript -->
+                    </ul>
+                    <div id="spectator-count" class="spectator-count">
+                        <span id="spectator-num">0</span> spectators
+                    </div>
+                </section>
+
+                <!-- Stream Quality (Host Only) -->
+                <section id="quality-section" class="sidebar-section hidden">
+                    <h2>Stream Quality</h2>
+                    <div class="quality-controls">
+                        <label>
+                            Bitrate (kbps)
+                            <input type="range" id="bitrate" min="1000" max="50000" step="1000" value="10000">
+                            <span id="bitrate-value">10000</span>
+                        </label>
+                        <label>
+                            FPS
+                            <select id="fps">
+                                <option value="30">30</option>
+                                <option value="60" selected>60</option>
+                                <option value="120">120</option>
+                            </select>
+                        </label>
+                        <label>
+                            Resolution
+                            <select id="resolution">
+                                <option value="1280x720">720p</option>
+                                <option value="1920x1080" selected>1080p</option>
+                                <option value="2560x1440">1440p</option>
+                                <option value="3840x2160">4K</option>
+                            </select>
+                        </label>
+                        <button id="apply-quality" class="btn btn-primary">Apply</button>
+                    </div>
+                </section>
+
+                <!-- Host Controls -->
+                <section id="host-controls" class="sidebar-section hidden">
+                    <h2>Host Controls</h2>
+                    <div id="permission-controls">
+                        <!-- Filled by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Controls Info -->
+                <section class="sidebar-section">
+                    <h2>Controls</h2>
+                    <div class="controls-info">
+                        <p><strong>Fullscreen:</strong> Double-click or F11</p>
+                        <p><strong>Gamepad:</strong> Connect any controller</p>
+                        <p><strong>Mouse:</strong> Click to capture</p>
+                        <p><strong>Keyboard:</strong> Available to host</p>
+                    </div>
+                </section>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
